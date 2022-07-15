@@ -1,5 +1,6 @@
-# Getting Started with [Fastify-CLI](https://www.npmjs.com/package/fastify-cli)
-This project was bootstrapped with Fastify-CLI.
+## Dependencies
+
+Node 14+
 
 ## Available Scripts
 
