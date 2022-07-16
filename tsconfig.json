@@ -1,5 +1,5 @@
 {
-  "extends": "fastify-tsconfig",
+  "extends": "@tsconfig/node16-strictest/tsconfig.json",
   "compilerOptions": {
     "outDir": "dist",
     "sourceMap": true

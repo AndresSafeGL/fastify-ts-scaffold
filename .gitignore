@@ -50,6 +50,7 @@ profile-*
 
 # vscode
 .vscode
+!.vscode/example.launch.json
 *code-workspace
 
 # clinic

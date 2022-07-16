@@ -1,6 +1,6 @@
 ## Running the repo
 
-- `npm i`
+- `yarn`
 - go to `http://localhost:3000`
 
 ## Dependencies
@@ -19,24 +19,30 @@ Node 14+
 - `http://localhost:3000/example`
 - ![Screen Shot 2022-07-15 at 17 18 43](https://user-images.githubusercontent.com/108548812/179323725-113356d5-3b21-44e5-adca-6fdef731491d.png)
 
-
-
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm run dev`
+### `yarn run dev`
 
 To start the app in dev mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `npm start`
+### `yarn start`
 
 For production mode
 
-### `npm run test`
+### `yarn run test`
 
 Run the test cases.
+
+### `yarn run format:fix`
+
+Format the code with Prettier
+
+### `yarn run format:check`
+
+Check the code format with Prettier (Useful for Continuous Integration)
 
 ## Learn More
 
