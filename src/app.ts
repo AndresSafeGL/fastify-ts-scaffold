@@ -1,6 +1,10 @@
 import { join } from "path";
 import AutoLoad, { AutoloadPluginOptions } from "@fastify/autoload";
+import { fastifyAwilixPlugin, diContainer } from "@fastify/awilix";
 import type { FastifyPluginAsync } from "fastify";
+
+import { asClass, Lifetime } from "awilix";
+import AuthenticationService from "./services/AuthenticationService";
 
 export type AppOptions = {
   // Place your custom options for app below here.
@@ -10,22 +14,26 @@ const app: FastifyPluginAsync<AppOptions> = async (
   fastify,
   opts
 ): Promise<void> => {
-  // Place here your custom code!
-
-  // Do not touch the following lines
-
-  // This loads all plugins defined in plugins
-  // those should be support plugins that are reused
-  // through your application
   void fastify.register(AutoLoad, {
     dir: join(__dirname, "plugins"),
     options: opts,
   });
 
-  // This loads all plugins defined in routes
-  // define your routes in one of these
+  void fastify.register(fastifyAwilixPlugin, {
+    disposeOnClose: true,
+    disposeOnResponse: true,
+  });
+
+  diContainer.register({
+    authenticationService: asClass(AuthenticationService, {
+      lifetime: Lifetime.SINGLETON,
+      dispose: (module) => module.dispose(),
+    }),
+  });
+
   void fastify.register(AutoLoad, {
     dir: join(__dirname, "routes"),
+    dirNameRoutePrefix: false,
     options: opts,
   });
 };

@@ -2,7 +2,25 @@
   "extends": "@tsconfig/node16-strictest/tsconfig.json",
   "compilerOptions": {
     "outDir": "dist",
-    "sourceMap": true
+    "baseUrl": ".",
+    "composite": true,
+    "module": "commonjs",
+    "target": "es2017",
+    "lib": [
+      "es2017"
+    ],
+    "declaration": true,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "resolveJsonModule": true,
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "removeComments": true,
   },
   "include": ["src/**/*.ts"]
 }

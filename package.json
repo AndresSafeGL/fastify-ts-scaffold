@@ -8,11 +8,11 @@
   },
   "scripts": {
     "test": "npm run build:ts && tsc -p test/tsconfig.json && tap --ts \"test/**/*.test.ts\"",
-    "start": "npm run build:ts && fastify start -l info dist/app.js",
+    "start": "npm run build:ts && fastify start -l info dist/src/app.js",
     "build:ts": "tsc -p tsconfig.json",
     "watch:ts": "tsc -w",
     "dev": "npm run build:ts && concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\" \"npm:watch:ts\" \"npm:dev:start\"",
-    "dev:start": "fastify start --ignore-watch=.ts$ -w -l info -P dist/app.js",
+    "dev:start": "fastify start --ignore-watch=.ts$ -w -l info -P dist/src/app.js",
     "format:fix": "npx prettier --write src/",
     "ci:format:check": "npx prettier --check ."
   },
@@ -30,9 +30,13 @@
   "dependencies": {
     "@fastify/autoload": "^5.0.0",
     "@fastify/sensible": "^4.1.0",
+    "@fastify/awilix": "^3.0.0",
+    "awilix": "^3.0.0",
     "fastify": "^4.0.0",
     "fastify-cli": "^4.3.0",
-    "fastify-plugin": "^3.0.0"
+    "fastify-plugin": "^3.0.0",
+    "amazon-cognito-identity-js": "^5.2.10",
+    "cross-fetch": "3.1.5"
   },
   "devDependencies": {
     "@tsconfig/node16-strictest": "1.0.3",
